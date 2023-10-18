@@ -1,0 +1,1 @@
+x=msgBox("Logoff to finish installation",0+64,"Done!")
