@@ -10,46 +10,115 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="material.css">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <style>
+        body {
+            color: white
+        }
+    </style>
+    <script src="script.js"></script>
 </head>
 
 <body>
-    <div class="mdl-layout mdl-js-layout" style="overflow-y:hidden">
+    <div style="display:block;z-index:2;width:100%;height:100%;background-color:black;position:fixed" id="setup">
+        <center>
+            <h3 id="setup1">Set Up Tasks</h3>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                style="background-color:rgb(66,135,246);width:400px;margin-top:5px" id="setup4"
+                onclick="document.getElementById('setup').style.display = 'none'">
+                Done
+            </button>
+            <br>
+            <div class="mdl-textfield mdl-js-textfield">
+                <h4 style="color:white">Session starts at</h6>
+                <input class="mdl-textfield__input" type="time" id="sample1">
+            </div>       
+            <h4 id="setup3">
+                Tasks for Today
+            </h4>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                style="background-color:rgb(66,135,246);width:100px;margin-top:5px" id="setup2">
+                Add
+            </button>
+            <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" style="margin-top:5px;color:black">
+                <thead>
+                    <tr>
+                        <th class="mdl-data-table__cell--non-numeric">Name</th>
+                        <th class="mdl-data-table__cell--non-numeric">Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">No name</td>
+                        <td class="mdl-data-table__cell--non-numeric">Online Assignment w/o New Tab</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h4 id="setup5">
+                Daily Tasks
+            </h4>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                style="background-color:rgb(66,135,246);width:100px;margin-top:5px" id="setup2">
+                Add
+            </button>
+            <h4 id="setup6">
+                Weekly Tasks
+            </h4>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                style="background-color:rgb(66,135,246);width:100px;margin-top:5px" id="setup2">
+                Add
+            </button>
+        </center>
+    </div>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer" style="overflow-y:hidden">
+        <div class="mdl-layout__drawer" style="z-index:0;background-color:black;color:white">
+            <span class="mdl-layout-title">Tasks</span>
+            <nav class="mdl-navigation">
+                <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"
+                    style="background-color:rgb(66,135,246)" onclick="document.getElementById('setup').style.display = 'block'">
+                    <i class="material-icons">add</i>
+                </button>
+                <a class="mdl-navigation__link">Assignment</a>
+            </nav>
+        </div>
         <main class="mdl-layout__content" style="flex: 1 0 auto">
             <div class="page-content">
                 <center>
                     <h3 id="mode" style="color:white">Digital Assignment Mode</h3>
-                    <span style="position: absolute;margin-left: auto;margin-right: auto;left: 0;right: 0;text-align: center;bottom:5px">
-                        <button
-                            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-                            style="background-color:rgb(66,135,246);width:400px;margin-top:5px" id="timer2">
-                            Automatically Resume Timer: Yes
-                        </button>
-                        <br>
-                        <button
-                            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-                            style="background-color:rgb(66,135,246);width:400px;margin-top:5px" id="timer2">
-                            Timer: Yes
-                        </button>
-                        <br>
-                        <button
-                            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-                            style="background-color:rgb(66,135,246);width:400px;margin-top:5px" id="timer2">
-                            Interactive: Yes
-                        </button>
+                    <h4 id="assignment">Finish interactive assignment on your computer.</h4>
+                    <h4 id="streak">Your streak is currently: 0</h4>
+                    <h4>If all assignments are completed timely in a day, your streak increases. Not finishing your
+                        assignment goal in time will make your streak reset.</h4>
+                    <span
+                        style="position: absolute;margin-left: auto;margin-right: auto;left: 0;right: 0;text-align: center;bottom:5px">
+                        <h3 id="timer">Time Left: 10:00</h4>
+                            <button
+                                class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                                style="background-color:rgb(66,135,246);width:400px;margin-top:5px">
+                                Done
+                            </button>
+                            <br><br>
+                            <button
+                                class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                                style="background-color:rgb(66,135,246);width:400px;margin-top:5px" id="timer2">
+                                Automatically Resume Timer: Yes
+                            </button>
+                            <br>
+                            <button
+                                class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                                style="background-color:rgb(66,135,246);width:400px;margin-top:5px" id="interactive">
+                                Interactive: Yes
+                            </button>
                     </span>
                 </center>
             </div>
             <div class="mdl-layout-spacer"></div>
         </main>
-        <footer style="background-color:rgb(66,135,246);flex: 0 0 auto;height:48px">
+        <footer style="background-color:rgb(66,135,246);flex: 0 0 auto;height:48px;z-index:2">
             <div>
                 <ul class="mdl-mini-footer__link-list"
                     style="color:white;padding-left:10px;font-size:15px;padding-top:18px;height:30px">
-                    <li><a href="#" style="font-family:'Roboto';font-weight:800">Assignment</a></li>
                     <li><a href="#">Music</a></li>
-                    <li><a href="#">Settings</a></li>
-                    <li><a href="#" style="font-family:'Roboto';font-weight:800">Pause</a></li>
-                    <li><a href="#">Tasks</a></li>
+                    <li><a href="#" style="font-family:'Roboto';font-weight:800"> | &nbsp;&nbsp;Pause</a></li>
                     <li><a href="#">Restore</a></li>
                     <li><a id="task"> | &nbsp;&nbsp;Next Task: 3:00 PM</a></li>
                     <li><a id="time"> | &nbsp;&nbsp;1:00 PM&nbsp;&nbsp;10/2</a></li>
